@@ -1,0 +1,36 @@
+#!/bin/bash
+session=$1
+code=$2
+windowNum=$3
+cmd="@woca_EE"
+sessionNum=5
+
+echo "start..."
+tmux new-session -s $session -d
+
+if [ ! $windowNum ]; then
+	echo "window num param do not set, set default num 5."
+	windowNum=5
+fi
+
+declare -i i=1;
+while ((i<=${windowNum}))
+do
+tmux new-window -t $session
+let ++i;
+done
+
+tmux list-windows -t $session | cut -d: -f1 | xargs -I{} tmux send-keys -t $session:{} "ssh yangmu02@relay.sankuai.com" C-m
+echo "connecting to relay..."
+# 等待3秒钟,等待连接上跳板机
+sleep 3s
+echo "connected to relay!"
+
+tmux list-windows -t $session | cut -d: -f1 | xargs -I{} tmux send-keys -t $session:{} "${cmd}${code}" C-m
+echo "sending password and code..."
+sleep 2s
+echo "password and code send ok!"
+# 选择第一个窗口为默认的激活窗口
+tmux select-window -t $session:1
+
+echo "all done."
