@@ -6,6 +6,7 @@ export ZSH=/Users/yangmu/Documents/DevUtils/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
+# 注意：ZSH_THEME="bira" 这个主题也挺好看的
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
