@@ -2,7 +2,7 @@
 session=$1
 code=$2
 windowNum=$3
-cmd="@woca_EE"
+cmd=""
 sessionNum=5
 
 echo "start..."
@@ -20,7 +20,7 @@ tmux new-window -t $session
 let ++i;
 done
 
-tmux list-windows -t $session | cut -d: -f1 | xargs -I{} tmux send-keys -t $session:{} "ssh yangmu02@relay.sankuai.com" C-m
+tmux list-windows -t $session | cut -d: -f1 | xargs -I{} tmux send-keys -t $session:{} "这里填写ssh相关命令" C-m
 echo "connecting to relay..."
 # 等待3秒钟,等待连接上跳板机
 sleep 3s
