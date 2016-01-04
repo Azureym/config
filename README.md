@@ -1,9 +1,10 @@
-配置清单:
-1.tmux配置文件
-2.bash配置文件
-3.zsh配置文件
-4.vim配置文件，.ideavimrc是idea的vim插件的相关配置
-5.oh-my-zsh配置文件
-6.git配置
-7.
-
+# 相关配置文件清单
+* tmux相关配置文件
+* bash配置文件
+* zsh配置文件
+* vim配置文件，包括.ideavimrc(是idea的vi插件相关配置)
+* oh-my-zsh配置文件
+* git配置
+- idea配置相关
+	* idea全量设置导出（jar包）
+	* .ideavimrc配置（是idea的vi插件配置）
