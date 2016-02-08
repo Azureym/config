@@ -1,0 +1,89 @@
+#!/bin/bash
+
+username="yangmu02"
+password="@nimabi_DD" 
+host="relay.sankuai.com"
+
+code=$1
+
+echo "select server"
+select server in "hotel01" "hotel02" "hotel03" "hotel04" "hotel-admin01" "hotel-admin02" "hotel-task01" "hotel-task02" "hotel-task03" "hotel-task04" "db38" "db24" "staging01" "mobile-task-schedule01" "mobile-hotel-rs-search01" "mobile-hotel-rs-search02" "hotel-staging01" "mobile-hotelsolr01" "mobile-hotelsolr02"  "mobile-hotel-rs-solr01" "mobile-hotel-rs-solr02" "mobile-hotel-rs-solr03" "mobile-hotel-rs-solr04" "mobile-hotel-rs-solr-staging01" "dx-hotel-rs-search01" "dx-hotel-rs-search02";
+do
+    case $server in
+        "hotel01")
+            server="mobile-hotel01";;
+        "hotel02")
+            server="mobile-hotel02";;
+		"hotel03")
+			server="mobile-hotel03";;
+		"hotel04")
+			server="mobile-hotel04";;
+        "hotel-admin01")
+            server="mobile-hoteladmin01";;
+        "hotel-admin02")
+            server="mobile-hoteladmin02";;
+        "hotel-task01")
+            server="mobile-hoteltask01";;
+        "hotel-task02")
+            server="mobile-hoteltask02";;
+        "hotel-task03")
+            server="mobile-hoteltask03";;
+        "hotel-task04")
+            server="mobile-hoteltask04";;
+        "db38")
+            server="db38";;
+        "db24")
+            server="db24";;
+		"staging01")
+			server="mobile-staging01";;
+		"mobile-task-schedule01")
+			server="mobile-task-schedule01";;
+		"mobile-hotel-rs-search01")
+			server="mobile-hotel-rs-search01";;
+		"mobile-hotel-rs-search02")
+			server="mobile-hotel-rs-search02";;
+		"mobile-hotelsolr01")
+			server="mobile-hotelsolr01";;
+		"mobile-hotelsolr02")
+			server="mobile-hotelsolr02";;
+
+		"mobile-hotel-rs-solr01")
+			server="mobile-hotel-rs-solr01";;
+		"mobile-hotel-rs-solr02")
+			server="mobile-hotel-rs-solr02";;
+
+		"mobile-hotel-rs-solr03")
+			server="mobile-hotel-rs-solr03";;
+		"mobile-hotel-rs-solr04")
+			server="mobile-hotel-rs-solr04";;
+		"hotel-staging01")
+			server="hotel-staging01";;
+		"mobile-hotel-rs-solr-staging01")
+			server="mobile-hotel-rs-solr-staging01";;
+		"dx-hotel-rs-search01")
+			server="dx-hotel-rs-search01";;
+		"dx-hotel-rs-search02")
+			server="dx-hotel-rs-search02";;
+    esac
+    break
+done
+
+expect -c "
+
+set timeout -1
+
+puts $server
+
+spawn ssh $username@$host
+expect -re \"Password\"
+  send \"$password$code\n\"
+
+expect \"\$*\"
+  send \"ssh $server\n\"
+
+expect \"\$*\"
+	send \"sudo -u sankuai -i\n\"
+
+interact
+
+"

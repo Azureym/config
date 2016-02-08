@@ -1,0 +1,76 @@
+#!/bin/bash
+server=${1}
+echo start...
+if [ ${server} = "hotel-server" ]; then
+cd /Users/yangmu/Documents/workspace/Hotel/hotel-server
+mvn clean package -DskipTests -Denv_config=dev/207
+scp target/hotel.war sankuai@hoteltest:/opt/meituan/service/mobile/hotel
+ssh sankuai@hoteltest << eeooff
+	cd /opt/meituan/service/mobile/hotel
+	[ -f lock ] && rm lock
+	bash deploy.sh all
+	exit
+eeooff
+fi
+
+if [ ${server} = "hotel-server02" ]; then
+cd /Users/yangmu/Documents/workspace/Hotel/hotel-server
+mvn clean package -DskipTests -Denv_config=dev/207
+scp target/hotel-release-1.0-SNAPSHOT.war sankuai@hoteltest02:/opt/meituan/service/mobile/hotel/hotel.war
+ssh sankuai@hoteltest02 << eeooff
+	cd /opt/meituan/service/mobile/hotel
+	[ -f lock ] && rm lock
+	bash deploy.sh all
+	exit
+eeooff
+fi
+
+if [ ${server} = "hotel-admin" ]; then
+cd /Users/yangmu/Documents/workspace/Hotel/hotel-admin1
+mvn clean package -DskipTests -Denv_config=dev/207
+scp target/hotel-admin.war sankuai@hoteladmintest:/opt/meituan/service/mobile/hotel-admin
+ssh sankuai@hoteladmintest << eeooff
+	cd /opt/meituan/service/mobile/hotel-admin
+	[ -f lock ] && rm lock
+	bash deploy.sh all
+	exit
+eeooff
+fi
+
+if [ ${server} = "hotel-admin02" ]; then
+cd /Users/yangmu/Documents/workspace/Hotel/hotel-admin1
+mvn clean package -DskipTests -Denv_config=dev/207
+scp target/hoteladmin-release-1.0-SNAPSHOT.war sankuai@hoteltest02:/opt/meituan/service/mobile/hotel-admin/hotel-admin.war
+ssh sankuai@hoteltest02 << eeooff
+	cd /opt/meituan/service/mobile/hotel-admin
+	[ -f lock ] && rm lock
+	bash deploy.sh all
+	exit
+eeooff
+fi
+
+if [ ${server} = "hotel-rs-search" ]; then
+cd /Users/yangmu/Documents/workspace/Hotel/hotel-rs-search
+mvn clean package -DskipTests -Denv_config=dev
+scp target/hotelrssearch-release-1.0-SNAPSHOT.war sankuai@hoteltest02:/opt/meituan/service/mobile/hotelrssearch/hotelrssearch.war
+ssh sankuai@hoteltest02 << eeooff
+	cd /opt/meituan/service/mobile/hotelrssearch
+	[ -f lock ] && rm lock
+	bash deploy.sh all
+	exit
+eeooff
+fi
+
+if [ ${server} = "hotel-rs-search02" ]; then
+cd /Users/yangmu/Documents/workspace/Hotel/hotel-rs-search
+mvn clean package -DskipTests -Denv_config=dev
+scp target/hotelrssearch-release-1.0-SNAPSHOT.war sankuai@192.168.22.172:/opt/meituan/service/mobile/hotelrssearch/hotelrssearch.war
+ssh sankuai@192.168.22.172 << eeooff
+	cd /opt/meituan/service/mobile/hotelrssearch
+	[ -f lock ] && rm lock
+	bash deploy.sh all
+	exit
+eeooff
+fi
+
+echo done!

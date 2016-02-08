@@ -1,0 +1,13 @@
+#!/bin/bash
+space=${1}
+if [ -n "${space}" ]; then
+	if [ ${space} = "hotel-server" ]; then 
+		cd /Users/yangmu/Documents/workspace/Hotel/hotel-server
+	elif [ ${space} = "hotel-admin" ]; then 
+		cd /Users/yangmu/Documents/workspace/Hotel/hotel-admin
+	elif [ ${space} = "hotel-lib" ]; then
+		cd /Users/yangmu/Documents/workspace/Hotel/hotel-lib 
+	fi
+else
+	echo "hotel-server/hotel-admin/hotel-lib"
+fi

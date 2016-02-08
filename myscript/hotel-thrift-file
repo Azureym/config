@@ -1,0 +1,33 @@
+#!/bin/bash
+
+localThriftFile=$1
+echo "current directory:"`pwd`
+
+remoteSshStr="sankuai@192.168.2.222"
+remoteThriftDir="~/yangmu02/thrift"
+localDir=$(pwd)
+
+cd ${localThriftDir}
+if [ -d gen-java ]; then
+	rm -rf gen-java
+fi
+
+ssh ${remoteSshStr} << eeooff
+	if [ -d ${remoteThriftDir} ]; then
+		rm -rf ${remoteThriftDir}
+	fi
+	if [ ! -d ${remoteThriftDir} ]; then
+		echo "remote dir: ${remoteThriftDir} does not exists, create it."
+		mkdir -p ${remoteThriftDir}
+	fi
+eeooff
+
+scp ${localDir}/${localThriftFile} ${remoteSshStr}:${remoteThriftDir}
+
+ssh ${remoteSshStr} << eeooff
+	cd ${remoteThriftDir}
+	find . -name "*.thrift" -exec thrift -gen java {} \;
+eeooff
+
+scp -r ${remoteSshStr}:${remoteThriftDir}/gen-java  ${localDir}
+
