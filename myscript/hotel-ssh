@@ -1,8 +1,8 @@
 #!/bin/bash
 
-username="yangmu02"
-password="@nimabi_DD" 
-host="relay.sankuai.com"
+username="" # 用户名
+password="" # 密码
+host="" # 跳板机名称
 
 code=$1
 
