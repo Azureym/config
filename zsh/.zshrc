@@ -14,6 +14,7 @@ ZSH_HIGHLIGHT_STYLES[globbing]=fg=magenta
 ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=magenta
 # 配置方案参见 https://github.com/zsh-users/zsh-autosuggestions#configuration
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6495ED"
+user=$(whoami)
 
 #ZSH_THEME="dpoggi"
 # Example aliases
@@ -120,9 +121,9 @@ alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
 # 设置gnu-sed的环境变量
 PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 # 设置ajc编译器的路径
-export PATH="/Users/sinman/Documents/script/ajc/bin:$PATH"
+export PATH="/Users/$user/Documents/script/ajc/bin:$PATH"
 # 设置visualvm的启动路径
-export PATH="/Users/sinman/Documents/muyang/tools/visualvm_142/bin:$PATH"
+export PATH="/Users/$user/Documents/muyang/tools/visualvm_142/bin:$PATH"
 
 
 #macvim 命令行启动配置
