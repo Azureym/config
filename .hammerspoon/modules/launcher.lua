@@ -10,7 +10,7 @@ grid.setMargins({0, 0})
 applist = {
     {shortcut = 'I',appname = 'IntelliJ IDEA'},
     {shortcut = 'C',appname = 'Google Chrome'},
-    {shortcut = 'K',appname = 'iTerm'},
+    {shortcut = 'T',appname = 'iTerm'},
     {shortcut = 'D',appname = 'Finder'},
     {shortcut = 'V',appname = 'Visual Studio Code'},
     {shortcut = 'G',appname = 'GoLand'}
@@ -19,7 +19,7 @@ applist = {
 }
 
 fnutils.each(applist, function(entry)
-    hotkey.bind({'ctrl', 'alt'}, entry.shortcut, entry.appname, function()
+    hotkey.bind({'ctrl', 'shift'}, entry.shortcut, entry.appname, function()
         application.launchOrFocus(entry.appname)
         toggle_application(applist[i].appname)
     end)
