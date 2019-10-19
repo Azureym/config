@@ -19,7 +19,7 @@ applist = {
 }
 
 fnutils.each(applist, function(entry)
-    hotkey.bind({'ctrl', 'shift'}, entry.shortcut, entry.appname, function()
+    hotkey.bind({'ctrl', 'alt'}, entry.shortcut, entry.appname, function()
         application.launchOrFocus(entry.appname)
         toggle_application(applist[i].appname)
     end)
