@@ -13,7 +13,8 @@ ZSH_HIGHLIGHT_STYLES[globbing]=fg=magenta
 # 设置查找历史命令颜色
 ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=magenta
 # 配置方案参见 https://github.com/zsh-users/zsh-autosuggestions#configuration
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6495ED"
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6495ED" #蓝色
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5A5A5A" #暗灰色
 user=$(whoami)
 
 #ZSH_THEME="dpoggi"
