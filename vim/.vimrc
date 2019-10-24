@@ -25,10 +25,13 @@ set guifont=Consolas:h12
 " 设置vim的主题颜色
 colorscheme inkpot
 " 设置当前页面顶部和底部所预留的行数
-set so=5
+set scrolloff=5
 " 显示vim编辑器底下的默认格式的状态行
 set laststatus=2
+" 显示标尺
 set ruler
+" 输入的命令显示出来
+set showcmd
 
 "设置编码方式
 set encoding=utf-8
