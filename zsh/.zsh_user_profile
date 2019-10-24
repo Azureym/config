@@ -1,0 +1,3 @@
+export GOPATH="/Users/$user/go"
+export PATH="/usr/local/go/bin:$PATH:$GOPATH/bin"
+export GO111MODULE="on"
