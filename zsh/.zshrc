@@ -104,8 +104,8 @@ export MAVEN_OPTS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address
 #command completion
 autoload -U compinit
 compinit
-#correction
-setopt correctall
+#disable the zshell's auto correction,这里禁用zshell的自动提示功能
+unsetopt correct_all
 # prompt
 autoload -U promptinit
 promptinit
