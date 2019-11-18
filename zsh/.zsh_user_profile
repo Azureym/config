@@ -1,3 +1,6 @@
-export GOPATH="/Users/$user/go"
-export PATH="/usr/local/go/bin:$PATH:$GOPATH/bin"
-export GO111MODULE="on"
+export GOROOT="/usr/local/Cellar/go@1.12/1.12.13/libexec"
+export GOPATH="/Users/$(whoami)/go"
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+export GIT_TERMINAL_PROMPT=1
+export GO111MODULE=on
