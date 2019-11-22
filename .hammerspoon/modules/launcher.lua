@@ -10,7 +10,7 @@ grid.setMargins({0, 0})
 applist = {
     {shortcut = 'I',appname = 'IntelliJ IDEA'},
     {shortcut = 'C',appname = 'Google Chrome'},
-    {shortcut = 'T',appname = 'iTerm'},
+    {shortcut = 'T',appname = 'Microsoft To Do'},
     {shortcut = 'D',appname = 'Finder'},
     {shortcut = 'V',appname = 'Visual Studio Code'},
     {shortcut = 'G',appname = 'GoLand'}
