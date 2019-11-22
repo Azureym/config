@@ -13,7 +13,8 @@ ZSH_HIGHLIGHT_STYLES[globbing]=fg=magenta
 # 设置查找历史命令颜色
 ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=magenta
 # 配置方案参见 https://github.com/zsh-users/zsh-autosuggestions#configuration
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6495ED"
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6495ED" #蓝色
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5A5A5A" #暗灰色
 user=$(whoami)
 
 #ZSH_THEME="dpoggi"
@@ -85,9 +86,13 @@ alias ll="ls -alFh"
 alias la="ls -A"
 alias l="ls -CF"
 
-# grep color on
-alias grep="grep --color"
-alias egrep="grep -E --color"
+# gnu grep,sed,awk instead of that of BSD
+# at first these tools should be installed with brew coreutils
+alias grep="ggrep --color"
+alias egrep="ggrep -E --color"
+alias pgrep="ggrep -P --color"
+alias awk="gawk"
+alias sed="gsed -E"
 
 # Add Maven Home
 export M2_HOME=/usr/local/maven
@@ -103,8 +108,8 @@ export MAVEN_OPTS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address
 #command completion
 autoload -U compinit
 compinit
-#correction
-setopt correctall
+#disable the zshell's auto correction,这里禁用zshell的自动提示功能
+unsetopt correct_all
 # prompt
 autoload -U promptinit
 promptinit

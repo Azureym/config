@@ -13,27 +13,34 @@ applist = {
     {shortcut = 'T',appname = 'Microsoft To Do'},
     {shortcut = 'D',appname = 'Finder'},
     {shortcut = 'V',appname = 'Visual Studio Code'},
-    {shortcut = 'G',appname = 'GoLand'}
+    {shortcut = 'I',appname = 'IntelliJ IDEA'},
+    {shortcut = 'J',appname = 'GoLand'},
+    {shortcut = 'K',appname = 'DataGrip'},
+    {shortcut = 'T',appname = 'iTerm2'},
+
+    {shortcut = 'H',appname = 'Google Chrome'},
+    {shortcut = 'U',appname = 'WeChat'},
+    {shortcut = 'M',appname = 'Mattermost'}
     --{shortcut = 'Y',appname = 'Activity Monitor'},
     --{shortcut = 'P',appname = 'System Preferences'},
 }
 
 fnutils.each(applist, function(entry)
     hotkey.bind({'ctrl', 'alt'}, entry.shortcut, entry.appname, function()
-        application.launchOrFocus(entry.appname)
-        toggle_application(applist[i].appname)
+        toggle_application(entry.appname)
     end)
 end)
 
 -- Toggle an application between being the frontmost app, and being hidden
 function toggle_application(_app)
     local app = appfinder.appFromName(_app)
-    if not app then
+    print("app:", app)
+    if (not app) then
         application.launchOrFocus(_app)
         return
     end
     local mainwin = app:mainWindow()
-    if mainwin then
+    if (mainwin) then
         if mainwin == window.focusedWindow() then
             mainwin:application():hide()
         else
