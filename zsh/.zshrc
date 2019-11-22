@@ -86,9 +86,13 @@ alias ll="ls -alFh"
 alias la="ls -A"
 alias l="ls -CF"
 
-# grep color on
-alias grep="grep --color"
-alias egrep="grep -E --color"
+# gnu grep,sed,awk instead of that of BSD
+# at first these tools should be installed with brew coreutils
+alias grep="ggrep --color"
+alias egrep="ggrep -E --color"
+alias pgrep="ggrep -P --color"
+alias awk="gawk"
+alias sed="gsed -E"
 
 # Add Maven Home
 export M2_HOME=/usr/local/maven
