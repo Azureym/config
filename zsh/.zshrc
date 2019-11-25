@@ -93,6 +93,7 @@ alias egrep="ggrep -E --color"
 alias pgrep="ggrep -P --color"
 alias awk="gawk"
 alias sed="gsed -E"
+alias date="gdate"
 
 # Add Maven Home
 export M2_HOME=/usr/local/maven
