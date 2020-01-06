@@ -26,6 +26,8 @@ set guifont=Consolas:h12
 colorscheme inkpot
 " 设置当前页面顶部和底部所预留的行数
 set scrolloff=5
+" 设置页面横向滚动预留的行数
+set sidescroll=3
 " 显示vim编辑器底下的默认格式的状态行
 set laststatus=2
 " 显示标尺
