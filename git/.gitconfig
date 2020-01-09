@@ -19,3 +19,6 @@
 [core]
 	ignorecase = false
 	editor = vim
+# https://stackoverflow.com/questions/48341920/git-branch-command-behaves-like-less
+[pager]
+        branch = false
