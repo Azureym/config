@@ -13,8 +13,8 @@ ZSH_HIGHLIGHT_STYLES[globbing]=fg=magenta
 # 设置查找历史命令颜色
 ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=magenta
 # 配置方案参见 https://github.com/zsh-users/zsh-autosuggestions#configuration
-#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6495ED" #蓝色
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5A5A5A" #暗灰色
+#ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6495ED"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5A5A5A"
 user=$(whoami)
 
 #ZSH_THEME="dpoggi"
@@ -48,9 +48,7 @@ user=$(whoami)
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-
-# plugins detail can be seen at this https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins-Overview
-plugins=(git mvn autojump zsh-completions zsh-syntax-highlighting tmux osx docker docker-compose zsh-autosuggestions history-search-multi-word redis-cli colorize cp)
+plugins=(git mvn autojump zsh-completions zsh-syntax-highlighting tmux osx docker zsh-autosuggestions history-search-multi-word redis-cli golang)
 # plugins=(git mvn autojump vi zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 # User configuration
@@ -86,14 +84,18 @@ alias ll="ls -alFh"
 alias la="ls -A"
 alias l="ls -CF"
 
+# brew install coreutils && brew install gnu-sed && brew install gawk && brew install grep && brew install findutils
 # gnu grep,sed,awk instead of that of BSD
-# at first these tools should be installed with brew coreutils
 alias grep="ggrep --color"
 alias egrep="ggrep -E --color"
 alias pgrep="ggrep -P --color"
 alias awk="gawk"
 alias sed="gsed -E"
 alias date="gdate"
+alias split="gsplit"
+alias find="gfind"
+alias xargs="gxargs"
+alias locate="glocate"
 
 # Add Maven Home
 export M2_HOME=/usr/local/maven
@@ -109,8 +111,8 @@ export MAVEN_OPTS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address
 #command completion
 autoload -U compinit
 compinit
-#disable the zshell's auto correction,这里禁用zshell的自动提示功能
-unsetopt correct_all
+#correction
+setopt correctall
 # prompt
 autoload -U promptinit
 promptinit
@@ -132,7 +134,6 @@ PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/Users/$user/Documents/script/ajc/bin:$PATH"
 # 设置visualvm的启动路径
 export PATH="/Users/$user/Documents/muyang/tools/visualvm_142/bin:$PATH"
-
 
 #macvim 命令行启动配置
 alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
@@ -158,6 +159,9 @@ export LESS_TERMCAP_ZO=$(tput ssupm)
 export LESS_TERMCAP_ZW=$(tput rsupm)
 
 # 禁止zshell的自动提示
-unsetopt correct
+unsetopt correct_all
 # 用户相关的一些脚本信息
 source ~/.zsh_user_profile
+# brew
+export PATH="/usr/local/sbin:$PATH"
+export HOMEBREW_GITHUB_API_TOKEN=3a0cd359d5ff680ac16b7aaeba26e5e37403be36
