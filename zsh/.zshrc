@@ -14,7 +14,7 @@ ZSH_HIGHLIGHT_STYLES[globbing]=fg=magenta
 ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=magenta
 # 配置方案参见 https://github.com/zsh-users/zsh-autosuggestions#configuration
 #ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6495ED"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#5A5A5A"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
 user=$(whoami)
 
 #ZSH_THEME="dpoggi"
@@ -71,13 +71,13 @@ export PATH="/usr/local/opt/curl/bin:$PATH"
 
 #================== Moon Young Profile =======================
 #bash_profile useful copy
-#enables color for iTerm
-export TERM=xterm-color
+#enables color for iTerm, for more information about the color see https://www.iterm2.com/faq.html,https://superuser.com/questions/399594/color-scheme-not-applied-in-iterm2
+export TERM=xterm-256color
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
 #tmux 设置
-alias tmux="TERM=screen-256color-bce tmux"
+alias tmux="TERM=xterm-256color tmux"
 
 # alias command ls
 alias ll="ls -alFh"
@@ -164,4 +164,3 @@ unsetopt correct_all
 source ~/.zsh_user_profile
 # brew
 export PATH="/usr/local/sbin:$PATH"
-export HOMEBREW_GITHUB_API_TOKEN=3a0cd359d5ff680ac16b7aaeba26e5e37403be36
