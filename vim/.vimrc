@@ -41,6 +41,8 @@ set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 "解决Backspace失效的问题
 set backspace=indent,eol,start
+" Show the next match while entering a searc. https://vim.fandom.com/wiki/Searching
+set incsearch
 
 " ---------------- bundle 文件类型检测 ----------------------
 "检测文件类型
