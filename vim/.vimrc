@@ -21,7 +21,7 @@ set hlsearch
 " 设置循环查找
 set wrapscan
 " 设置字体
-set guifont=Consolas:h12
+set guifont=Monaco:h12
 " 设置vim的主题颜色
 colorscheme inkpot
 " 设置当前页面顶部和底部所预留的行数
