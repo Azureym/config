@@ -30,10 +30,7 @@ set scrolloff=5
 set sidescroll=3
 " 显示vim编辑器底下的默认格式的状态行
 set laststatus=2
-" 显示标尺
 set ruler
-" 输入的命令显示出来
-set showcmd
 
 "设置编码方式
 set encoding=utf-8
@@ -68,6 +65,10 @@ Bundle 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'Lokaltog/vim-powerline'
 "xml相关功能插件
 Bundle 'othree/xml.vim'
+"git plugin
+Bundle 'tpope/vim-fugitive'
+" Insert or delete brackets, parens, quotes in pair.
+Bundle 'jiangmiao/auto-pairs'
 
 "============= PowerLine ================
 "vim有一个状态栏 加上powline则有两个状态栏
@@ -77,7 +78,7 @@ let g:Powline_symbols='fancy'
 
 "============= NerdTree 配置 ===================
 "快捷键映射
-map <F3> :NERDTreeToggle<CR>
+"map <F3> :NERDTreeToggle<CR>
 "vim启动的时候自动开启nerd tree
 "autocmd vimenter * NERDTree
 
