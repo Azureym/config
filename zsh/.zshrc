@@ -12,10 +12,15 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[globbing]=fg=magenta
 # 设置查找历史命令颜色
 ZSH_HIGHLIGHT_STYLES[history-expansion]=fg=magenta
+# for history-search-multi-word see https://github.com/zdharma/history-search-multi-word
+typeset -gA HSMW_HIGHLIGHT_STYLES
+HSMW_HIGHLIGHT_STYLES[reserved-word]="fg=yellow"
+#HSMW_HIGHLIGHT_STYLES[path]="fg=white,bold"
+
 # 配置方案参见 https://github.com/zsh-users/zsh-autosuggestions#configuration
 #ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#6495ED"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
-user=$(whoami)
+export user; user=$(whoami)
 
 #ZSH_THEME="dpoggi"
 # Example aliases
@@ -109,21 +114,24 @@ export MAVEN_OPTS='-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address
 
 # private shell script export PATH=$PATH:/Users/yangmu/myscript
 #command completion
-autoload -U compinit
-compinit
-#correction
-setopt correctall
-# prompt
-autoload -U promptinit
-promptinit
+#autoload -U compinit
+#compinit
+##correction
+#setopt correctall
+## prompt
+#autoload -U promptinit
+#promptinit
+autoload -U compinit && compinit
 
 # 不同版本的jdk配置
 # 设置 JDK 8  
 export JAVA_8_HOME=`/usr/libexec/java_home -v 1.8`
+# amazon corretto8 version. use `brew tap homebrew/cask-versions && brew cask install corretto8` to install
+export JAVA_8_CORRETTO='/Library/Java/JavaVirtualMachines/amazon-corretto-8.jdk/Contents/Home'
 # 默认jdk8
-export JAVA_HOME=$JAVA_8_HOME
+export JAVA_HOME=$JAVA_8_CORRETTO
 # jdk版本切换
-alias jdk8='export JAVA_HOME=$JAVA_8_HOME'
+alias jdk8='export JAVA_HOME=$JAVA_8_CORRETTO'
 
 # zsh 命令行提示配色, 这里因为我安装了oh-my-zsh插件命令行提示配色插件，所以可以暂时不用使用这一行
 # source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -160,7 +168,23 @@ export LESS_TERMCAP_ZW=$(tput rsupm)
 
 # 禁止zshell的自动提示
 unsetopt correct_all
-# 用户相关的一些脚本信息
-source ~/.zsh_user_profile
 # brew
 export PATH="/usr/local/sbin:$PATH"
+
+#set history size
+export HISTSIZE=10000
+#save history after logout
+export SAVEHIST=10000
+#history file location
+export HISTFILE=~/.zsh_history
+export PATH="/usr/local/opt/bc/bin:$PATH"
+
+# go version management:https://github.com/moovweb/gvm
+[[ -s "/Users/mu.yang/.gvm/scripts/gvm" ]] && source "/Users/mu.yang/.gvm/scripts/gvm"
+alias go9="gvm use go1.9.7"
+alias go12="gvm use go1.12.17"
+
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+# 用户相关的一些脚本信息
+source ~/.zsh_user_profile
