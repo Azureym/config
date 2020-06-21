@@ -147,7 +147,7 @@ export PATH="/Users/$user/Documents/muyang/tools/visualvm_142/bin:$PATH"
 alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
 #sublime 命令行启动配置
 #alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
-alias c="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+alias c=code
 # 英文显示git的提示信息
 alias git='LANG=en_US.UTF-8 git'
 
