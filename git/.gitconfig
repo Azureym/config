@@ -1,11 +1,13 @@
 [user]
-	name = “Bennett Yang”
-	#email = *****
+	name = muyang
+	email = mu.yang@xxx.com
 # 用来控制git命令展示的各种颜色
 [color]
 	ui = auto
 	branch = auto
 	status = auto
+	interactive = auto
+	diff = auto
 # 一些别名，能够提高输入命令的速度
 [alias]
 	st = status
@@ -14,13 +16,26 @@
 	co = checkout
 	br = branch
 	re = restore
+	sh = switch
 	lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
 	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n'' %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
 	lg = log --graph --decorate
 [core]
 	ignorecase = false
 	editor = vim
-# https://stackoverflow.com/questions/48341920/git-branch-command-behaves-like-less
+#	pager = less -F -X
+[url "gitlab@xxxxx:"]
+	insteadOf = https://git.xxxxx.com/
 [pager]
-        branch = false
+	branch = false
 	stash = false
+# Comment: Start of "Extra Block"
+# Comment: This is to unlock VSCode as your git diff and git merge tool
+[merge]
+    tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+[diff]
+    tool = vscode
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
