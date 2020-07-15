@@ -22,7 +22,7 @@ brew list reattach-to-user-namespace || brew install reattach-to-user-namespace
 
 brew list mycli || brew install mycli # (mysql 命令行客户端)
 
-brew list jvmtop || brew install jvmtop # (java版的top)
+#brew list jvmtop || brew install jvmtop # (java版的top)
 
 brew list coreutils || brew install coreutils # (安装核心工具)
 brew list grep || brew install grep # (GNU grep)
@@ -59,5 +59,7 @@ brew list hammerspoon || brew cask install hammerspoon
 brew list keepassx || brew cask install keepassx
 brew list motrix || brew cask install motrix # (download manager)
 brew list typora || brew cask install typora # (markdown)
-brew list cheatsheet || brew cask install cheatsheet
+#brew list cheatsheet || brew cask install cheatsheet
 brew list iina || brew cask install iina #（video player）
+
+brew list another-redis-desktop-manager || brew cask install another-redis-desktop-manager #(redis-client free)
