@@ -63,3 +63,7 @@ brew list typora || brew cask install typora # (markdown)
 brew list iina || brew cask install iina #（video player）
 
 brew list another-redis-desktop-manager || brew cask install another-redis-desktop-manager #(redis-client free)
+brew list fork || brew cask install fork #(git tools)
+brew list drawio && brew cask install drawio
+brew list wireshark &&  brew cask install wireshark
+brew list fork && brew cask install fork
