@@ -41,5 +41,6 @@
     cmd = code --wait --diff $LOCAL $REMOTE
 [pull]
         rebase = false
+	default = current
 [push]
         default = current
