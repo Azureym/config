@@ -25,6 +25,7 @@ brew list mycli || brew install mycli # (mysql 命令行客户端)
 #brew list jvmtop || brew install jvmtop # (java版的top)
 
 brew list coreutils || brew install coreutils # (安装核心工具)
+brew list gnutar || brew install gnutar (gnu tar)
 brew list grep || brew install grep # (GNU grep)
 brew list gawk || brew install gawk # (gnu 版本的awk，标准的awk)
 brew list findutils || brew install findutils # (Collection of GNU find, xargs, and locate)
