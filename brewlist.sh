@@ -50,6 +50,8 @@ brew list mysql-client || brew install mysql-client # (可以使用mysqldump命�
 brew list tcpdump || brew install tcpdump
 brew list bc || brew install bc
 
+brew list iftop || brew install iftop
+
 # ————————————————
 # setup jdk8 of amazon version 
 brew tap homebrew/cask-versions 
@@ -65,6 +67,6 @@ brew list iina || brew cask install iina #（video player）
 
 brew list another-redis-desktop-manager || brew cask install another-redis-desktop-manager #(redis-client free)
 brew list fork || brew cask install fork #(git tools)
-brew list drawio && brew cask install drawio
-brew list wireshark &&  brew cask install wireshark
-brew list fork && brew cask install fork
+brew list drawio || brew cask install drawio
+brew list wireshark ||  brew cask install wireshark
+brew list fork || brew cask install fork
