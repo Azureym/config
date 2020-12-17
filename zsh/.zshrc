@@ -53,7 +53,8 @@ export user; user=$(whoami)
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mvn autojump zsh-completions zsh-syntax-highlighting tmux osx docker zsh-autosuggestions history-search-multi-word redis-cli golang)
+plugins=(git autojump zsh-completions zsh-syntax-highlighting tmux zsh-autosuggestions history-search-multi-word redis-cli golang)
+#plugins=(git mvn autojump zsh-completions zsh-syntax-highlighting tmux osx docker zsh-autosuggestions history-search-multi-word redis-cli golang)
 # plugins=(git mvn autojump vi zsh-syntax-highlighting zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 # User configuration
@@ -149,7 +150,7 @@ alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
 #alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 alias c=code
 # 英文显示git的提示信息
-alias git='LANG=en_US.UTF-8 git'
+alias git='LANG=en_US.UTF-8 /usr/local/bin/git'
 
 #彩色的man文档阅读配置
 export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
@@ -180,11 +181,15 @@ export HISTFILE=~/.zsh_history
 export PATH="/usr/local/opt/bc/bin:$PATH"
 
 # go version management:https://github.com/moovweb/gvm
-[[ -s "/Users/mu.yang/.gvm/scripts/gvm" ]] && source "/Users/mu.yang/.gvm/scripts/gvm"
-alias go9="gvm use go1.9.7"
-alias go12="gvm use go1.12.17"
+[[ -d ~/.gvm ]] && source ~/.gvm/scripts/gvm
+alias go9="gvm use go9"
+alias go12="gvm use go12"
+alias go14="gvm use go14"
 
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 # 用户相关的一些脚本信息
 source ~/.zsh_user_profile
+
+# Created by `userpath` on 2020-08-10 09:21:59
+export PATH="$PATH:/Users/mu.yang/.local/bin"

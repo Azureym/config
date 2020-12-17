@@ -1,5 +1,2 @@
-export HOMEBREW_GITHUB_API_TOKEN='226d9840f9f5316efb18e1a2f93055007fc3d2e0'
-
-alias ssh_test='ssh -v ld-mu_yang@10.129.97.78'
-alias ssh_uat='ssh -v ld-mu_yang@10.129.97.142'
-alias ssh_staging='ssh -v ld-mu_yang@10.129.97.207'
+#go12 &> /dev/null
+export HOMEBREW_GITHUB_API_TOKEN='0816e2c601fcca6bd7c462c7e11e28319e132684'
